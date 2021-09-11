@@ -1,17 +1,19 @@
 extends RigidBody
 
 
+signal cube_obtained(pos)
+
 var is_attached := false
+
+onready var _start_pos := translation
 
 
 func _on_area_body_entered(body: Node) -> void:
 	if not is_attached:
-		translation = body.translation + Vector3(0, 0, 5)
-		var joint := PinJoint.new()
-		get_parent().add_child(joint)
-		if body.last_cube:
-			joint.set("nodes/node_a", body.last_cube.get_path())
-		else:
-			joint.set("nodes/node_a", body.get_path())
-		joint.set("nodes/node_b", get_path())
+		yield(get_tree(), "idle_frame")
+		get_parent().remove_child(self)
+		body.add_child(self)
+		body.num_cubes += 1
+		translation = Vector3(0, 0, 3) * body.num_cubes
 		is_attached = true
+		emit_signal("cube_obtained", _start_pos)

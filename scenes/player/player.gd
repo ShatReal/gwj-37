@@ -10,6 +10,7 @@ const V_LOOK_SENS = 1.0
 
 var velocity := Vector3.ZERO
 var last_cube: RigidBody
+var num_cubes := 0
 
 onready var cam = $CamPivot
 
@@ -50,7 +51,18 @@ func _physics_process(delta: float) -> void:
 		velocity.y += JUMP_FORCE
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
-	
+
+	if Input.is_action_pressed("cam_up"):
+		cam.rotation_degrees.x += Input.get_action_strength("cam_up") * V_LOOK_SENS
+		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x, -90, 90)
+	elif Input.is_action_pressed("cam_down"):
+		cam.rotation_degrees.x -= Input.get_action_strength("cam_down") * V_LOOK_SENS
+		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x, -90, 90)
+	if Input.is_action_pressed("cam_left"):
+		rotation_degrees.y += Input.get_action_strength("cam_left") * H_LOOK_SENS
+	elif Input.is_action_pressed("cam_right"):
+		rotation_degrees.y -= Input.get_action_strength("cam_right") * H_LOOK_SENS
+
 
 func reset_camera() -> void:
 	cam.rotation_degrees.x = -20

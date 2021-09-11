@@ -9,7 +9,7 @@
 metallic = 1.0
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 2.34517
+radius = 3.20105
 height = 0.002
 
 [node name="Cube" type="RigidBody" groups=[
