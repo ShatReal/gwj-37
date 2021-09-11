@@ -15,19 +15,19 @@ size = Vector3( 50, 2, 50 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.831373, 0.643137, 0.34902, 1 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 11, 1, 11 )
 
-[sub_resource type="CubeMesh" id=7]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 20, 2, 20 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.219608, 0.231373, 0.239216, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 1000, 1, 1000 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 size = 36
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -52,51 +52,51 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground2"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground2"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="Ground3" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -89 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground3"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground3"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="Ground4" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8365, 7.34687, -89 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground4"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground4"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="Ground5" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 15, -121 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground5"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground5"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="Ground6" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.449, 15, -237.978 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground6"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground6"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="MovingPlatform" parent="Ground" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 15, -152 )
@@ -134,7 +134,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Bottom"]
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="Cubes" type="Spatial" parent="."]
 
@@ -156,7 +156,7 @@ __meta__ = {
 [node name="CubesLabel" type="Label" parent="UI"]
 margin_right = 137.0
 margin_bottom = 43.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Cubes: 0"
 __meta__ = {
