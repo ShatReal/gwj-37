@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/cube.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/robot_regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/level_1/level_1.gd" type="Script" id=4]
 [ext_resource path="res://scenes/level_1/moving_platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/level_1/Atmosphere.mp3" type="AudioStream" id=6]
+[ext_resource path="res://scenes/level_1/rotater.tscn" type="PackedScene" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 26, 1, 26 )
@@ -24,6 +27,25 @@ size = Vector3( 20, 2, 20 )
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.219608, 0.231373, 0.239216, 1 )
 
+[sub_resource type="CylinderShape" id=9]
+radius = 4.0
+height = 15.0
+
+[sub_resource type="CylinderMesh" id=10]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 14.0
+
+[sub_resource type="SphereShape" id=11]
+radius = 10.0
+
+[sub_resource type="SphereMesh" id=12]
+radius = 10.0
+height = 10.0
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 8 )
+
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 1000, 1, 1000 )
 
@@ -40,6 +62,9 @@ script = ExtResource( 4 )
 
 [node name="Ground" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground"]
 shape = SubResource( 1 )
@@ -48,8 +73,24 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
+[node name="Ground9" type="StaticBody" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.512, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Ground9"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Ground9"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
 [node name="Ground2" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground2"]
 shape = SubResource( 4 )
@@ -60,6 +101,9 @@ material/0 = SubResource( 6 )
 
 [node name="Ground3" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -89 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground3"]
 shape = SubResource( 4 )
@@ -70,6 +114,9 @@ material/0 = SubResource( 6 )
 
 [node name="Ground4" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8365, 7.34687, -89 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground4"]
 shape = SubResource( 4 )
@@ -80,6 +127,9 @@ material/0 = SubResource( 6 )
 
 [node name="Ground5" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 15, -121 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground5"]
 shape = SubResource( 4 )
@@ -90,11 +140,52 @@ material/0 = SubResource( 6 )
 
 [node name="Ground6" type="StaticBody" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.449, 15, -237.978 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Ground6"]
 shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Ground6"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground/Ground6"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Ground7" type="StaticBody" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.36, 20.8901, -240.407 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Ground7"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Ground7"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground/Ground7"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Ground8" type="StaticBody" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 182.431, 40.4002, -146.661 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Ground8"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Ground8"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground/Ground8"]
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
@@ -118,23 +209,121 @@ _speed = 5.0
 
 [node name="MovingPlatform4" parent="Ground" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.522, 10, -214 )
-_direction = Vector3( 0, 1, 0 )
+_direction = Vector3( 1, 0, 0 )
 _distance = 10.0
 _speed = 5.0
+
+[node name="MovingPlatform5" parent="Ground" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 171.025, 43.2102, -120.366 )
+_direction = Vector3( 1, 0, 0 )
+_distance = 10.0
+_speed = 5.0
+
+[node name="MovingPlatform6" parent="Ground" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.742, 46.0451, -97.7248 )
+_direction = Vector3( 1, 0, 0 )
+_distance = 10.0
+_speed = 5.0
+
+[node name="MovingPlatform7" parent="Ground" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.877, 56.9564, -82.9706 )
+_direction = Vector3( 1, 0, 0 )
+_distance = 10.0
+_speed = 5.0
+
+[node name="Rotater" parent="Ground" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 90.0656, 7.20019, -252.659 )
+
+[node name="Rotater2" parent="Ground" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 128.332, 7.20019, -247.81 )
+
+[node name="Rotater3" parent="Ground" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 164.421, 9.6947, -254.521 )
+
+[node name="Rotater4" parent="Ground" instance=ExtResource( 7 )]
+transform = Transform( -0.581243, 0, 0.81373, 0, 1, 0, -0.81373, 0, -0.581243, 115.819, 44.8126, -63.7674 )
+
+[node name="Rotater5" parent="Ground" instance=ExtResource( 7 )]
+transform = Transform( -0.581243, 0, 0.81373, 0, 1, 0, -0.81373, 0, -0.581243, 77.4489, 42.8284, -48.4194 )
+
+[node name="Cylinder" type="StaticBody" parent="Ground"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 194.305, 19.6666, -219.562 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Cylinder2" type="StaticBody" parent="Ground"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 194.305, 29.5252, -204.45 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Cylinder3" type="StaticBody" parent="Ground"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 183.871, 34.6606, -189.583 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Cylinder4" type="StaticBody" parent="Ground"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 173.749, 38.3375, -173.262 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Cylinder5" type="StaticBody" parent="Ground"]
+transform = Transform( -3.17323e-08, -0.725951, -0.687747, 1, -4.37114e-08, 0, -3.00624e-08, -0.687747, 0.725951, 53.3071, 48.7135, -26.7649 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = SubResource( 10 )
+material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.697034, -0.357718, -0.621435, 0.673747, 0.0301651, 0.738346, -0.245374, -0.933342, 0.262038, 0, 37.5953, 0 )
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-
-[node name="Bottom" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0 )
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape" type="CollisionShape" parent="Bottom"]
-shape = SubResource( 7 )
 
 [node name="Cubes" type="Spatial" parent="."]
 
@@ -143,6 +332,39 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 10, -89 )
 
 [node name="Cube2" parent="Cubes" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5218, 17, -237.458 )
+
+[node name="Cube3" parent="Cubes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.571, 23, -240.091 )
+
+[node name="Cube4" parent="Cubes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 183.036, 42, -146.816 )
+
+[node name="Cube5" parent="Cubes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79857, 41, -6.52533 )
+
+[node name="Goal" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.9962, 0 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Goal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03416, 0, 4.7147 )
+shape = SubResource( 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Goal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="Bottom" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottom"]
+shape = SubResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -163,6 +385,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
+[node name="Win" type="Label" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.5
+margin_top = -21.5
+margin_right = 68.5
+margin_bottom = 21.5
+custom_fonts/font = SubResource( 8 )
+text = "You win!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
 [connection signal="cube_obtained" from="Cubes/Cube" to="." method="_on_cube_obtained"]
 [connection signal="cube_obtained" from="Cubes/Cube2" to="." method="_on_cube_obtained"]
+[connection signal="cube_obtained" from="Cubes/Cube3" to="." method="_on_cube_obtained"]
+[connection signal="cube_obtained" from="Cubes/Cube4" to="." method="_on_cube_obtained"]
+[connection signal="cube_obtained" from="Cubes/Cube5" to="." method="_on_cube_obtained"]
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]

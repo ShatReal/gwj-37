@@ -11,7 +11,7 @@ var _vel := Vector3.ZERO
 onready var _start_translation := translation
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _start_translation.distance_to(translation) >= _distance:
 		_going_towards = not _going_towards
 	if _going_towards:

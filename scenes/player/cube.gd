@@ -1,4 +1,4 @@
-extends RigidBody
+extends StaticBody
 
 
 signal cube_obtained(pos)

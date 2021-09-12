@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y -= GRAVITY * delta
 	if velocity.y < -MAX_FALL_SPEED:
 		velocity.y = -MAX_FALL_SPEED
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if $JumpArea.get_overlapping_bodies().size() != 0 and Input.is_action_just_pressed("jump"):
 		velocity.y += JUMP_FORCE
 	
 	velocity = move_and_slide(velocity, Vector3.UP)

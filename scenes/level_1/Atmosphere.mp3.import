@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Atmosphere.mp3-d9dfd006aa2f4142c27b5c4da7074e95.mp3str"
+
+[deps]
+
+source_file="res://scenes/level_1/Atmosphere.mp3"
+dest_files=[ "res://.import/Atmosphere.mp3-d9dfd006aa2f4142c27b5c4da7074e95.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
