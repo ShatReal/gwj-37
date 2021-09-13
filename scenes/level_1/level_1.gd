@@ -2,13 +2,26 @@ extends Node
 
 
 var _player_respawn := Vector3.ZERO
+var _won := false
 
-onready var _cubes_label := $UI/CubesLabel
+onready var _cubes_label := $UI/TopLeft/CubesLabel
+onready var _time_label := $UI/TopLeft/TimeLabel
+onready var _start_time := OS.get_ticks_msec()
 
 
 func _ready() -> void:
 	pass
 #	$Player.translation = $Cubes/Cube5.translation
+
+
+func _process(delta: float) -> void:
+	if not _won:
+		var dif = OS.get_ticks_msec() - _start_time
+		dif = dif / 1000
+		var h = dif / 3600
+		var m = dif % 3600 / 60
+		var s = dif % 3600 % 60
+		_time_label.text = "Time: %02d:%02d:%02d" % [h, m, s]
 
 
 func _on_bottom_body_entered(body: Node) -> void:
@@ -24,3 +37,4 @@ func _on_cube_obtained(pos: Vector3) -> void:
 func _on_goal_body_entered(body: Node) -> void:
 	if $Player.num_cubes >= 5:
 		$UI/Win.show()
+		_won = true

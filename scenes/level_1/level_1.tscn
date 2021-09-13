@@ -27,29 +27,29 @@ size = Vector3( 20, 2, 20 )
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.219608, 0.231373, 0.239216, 1 )
 
-[sub_resource type="CylinderShape" id=9]
+[sub_resource type="CylinderShape" id=7]
 radius = 4.0
 height = 15.0
 
-[sub_resource type="CylinderMesh" id=10]
+[sub_resource type="CylinderMesh" id=8]
 top_radius = 4.0
 bottom_radius = 4.0
 height = 14.0
 
-[sub_resource type="SphereShape" id=11]
+[sub_resource type="SphereShape" id=9]
 radius = 10.0
 
-[sub_resource type="SphereMesh" id=12]
+[sub_resource type="SphereMesh" id=10]
 radius = 10.0
 height = 10.0
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=11]
 albedo_texture = ExtResource( 8 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=12]
 extents = Vector3( 1000, 1, 1000 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=13]
 size = 36
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -221,7 +221,7 @@ _speed = 5.0
 
 [node name="MovingPlatform6" parent="Ground" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.742, 46.0451, -97.7248 )
-_direction = Vector3( 1, 0, 0 )
+_direction = Vector3( -1, 0, 0 )
 _distance = 10.0
 _speed = 5.0
 
@@ -254,11 +254,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Cylinder2" type="StaticBody" parent="Ground"]
@@ -269,11 +269,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Cylinder3" type="StaticBody" parent="Ground"]
@@ -284,11 +284,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Cylinder4" type="StaticBody" parent="Ground"]
@@ -299,11 +299,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Cylinder5" type="StaticBody" parent="Ground"]
@@ -314,11 +314,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/Cylinder5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.76785 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -349,12 +349,12 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Goal"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03416, 0, 4.7147 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Goal"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5 )
-mesh = SubResource( 12 )
-material/0 = SubResource( 13 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="Bottom" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
@@ -362,7 +362,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Bottom"]
-shape = SubResource( 7 )
+shape = SubResource( 12 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -372,16 +372,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="CubesLabel" type="Label" parent="UI"]
-margin_right = 137.0
-margin_bottom = 43.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Cubes: 0"
-__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -395,11 +385,35 @@ margin_left = -68.5
 margin_top = -21.5
 margin_right = 68.5
 margin_bottom = 21.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 text = "You win!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TopLeft" type="VBoxContainer" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CubesLabel" type="Label" parent="UI/TopLeft"]
+margin_right = 237.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Cubes: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="UI/TopLeft"]
+margin_top = 47.0
+margin_right = 237.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 13 )
+text = "Time: 00:00:00"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

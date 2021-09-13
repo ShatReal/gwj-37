@@ -16,6 +16,7 @@ height = 0.002
 "cube",
 ]]
 collision_layer = 4
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -29,7 +30,7 @@ shape = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Area" type="Area" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
