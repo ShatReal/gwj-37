@@ -17,6 +17,7 @@ onready var cam = $CamPivot
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$CharPivot/Bot/AnimationPlayer.play("Idle")
 
 
 func _unhandled_input(event: InputEvent) -> void:
