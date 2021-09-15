@@ -13,11 +13,12 @@ var last_cube: RigidBody
 var num_cubes := 0
 
 onready var cam = $CamPivot
+onready var _anim_player := $CharPivot/Bot/RootNode/AnimationPlayer
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$CharPivot/Bot/AnimationPlayer.play("Idle")
+	_anim_player.play("Idle")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -MAX_FALL_SPEED
 	if $JumpArea.get_overlapping_bodies().size() != 0 and Input.is_action_just_pressed("jump"):
 		velocity.y += JUMP_FORCE
+		$Jump.play()
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
 
@@ -63,6 +65,18 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees.y += Input.get_action_strength("cam_left") * H_LOOK_SENS
 	elif Input.is_action_pressed("cam_right"):
 		rotation_degrees.y -= Input.get_action_strength("cam_right") * H_LOOK_SENS
+		
+	if velocity.y > 0:
+		_anim_player.play("fall")
+	elif velocity.y < 0:
+		_anim_player.play("jump")
+	elif abs(velocity.x) > 1 or abs(velocity.z) > 1:
+		_anim_player.play("running")
+		if not $Footsteps.playing:
+			$Footsteps.play()
+	else:
+		_anim_player.play("Idle")
+		$Footsteps.stop()
 
 
 func reset_camera() -> void:

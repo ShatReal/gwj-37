@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/cube.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/level_1/Atmosphere.mp3" type="AudioStream" id=6]
 [ext_resource path="res://scenes/level_1/rotater.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://sounds/win.mp3" type="AudioStream" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 26, 1, 26 )
@@ -415,9 +416,12 @@ margin_bottom = 90.0
 custom_fonts/font = SubResource( 13 )
 text = "Time: 00:00:00"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 
 [connection signal="cube_obtained" from="Cubes/Cube" to="." method="_on_cube_obtained"]
 [connection signal="cube_obtained" from="Cubes/Cube2" to="." method="_on_cube_obtained"]

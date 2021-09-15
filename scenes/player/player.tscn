@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player/default_cube.glb" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/bot.gltf" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player/bot.fbx" type="PackedScene" id=3]
+[ext_resource path="res://sounds/death.mp3" type="AudioStream" id=4]
+[ext_resource path="res://sounds/footsteps.mp3" type="AudioStream" id=5]
+[ext_resource path="res://sounds/jump.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.14683
@@ -17,10 +20,10 @@ script = ExtResource( 2 )
 [node name="CharPivot" type="Spatial" parent="."]
 
 [node name="Cube" parent="CharPivot" instance=ExtResource( 1 )]
-visible = false
 
 [node name="Bot" parent="CharPivot" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.82371, 0 )
@@ -42,3 +45,12 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="JumpArea"]
 shape = SubResource( 2 )
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

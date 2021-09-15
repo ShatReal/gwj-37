@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cube_collected.mp3-4f07d8993b4ea756362b043c5cdbdfec.mp3str"
+
+[deps]
+
+source_file="res://sounds/cube_collected.mp3"
+dest_files=[ "res://.import/cube_collected.mp3-4f07d8993b4ea756362b043c5cdbdfec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
