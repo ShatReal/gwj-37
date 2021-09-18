@@ -13,12 +13,12 @@ var last_cube: RigidBody
 var num_cubes := 0
 
 onready var cam = $CamPivot
-onready var _anim_player := $CharPivot/Bot/RootNode/AnimationPlayer
+onready var _anim_player := $CharPivot/Bot/AnimationPlayer
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	_anim_player.play("Idle")
+	_anim_player.play("idle")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -65,17 +65,19 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees.y += Input.get_action_strength("cam_left") * H_LOOK_SENS
 	elif Input.is_action_pressed("cam_right"):
 		rotation_degrees.y -= Input.get_action_strength("cam_right") * H_LOOK_SENS
-		
-	if velocity.y > 0:
-		_anim_player.play("fall")
-	elif velocity.y < 0:
+	
+	if velocity.y < -1:
+		_anim_player.play("falling")
+		$Footsteps.stop()
+	elif velocity.y > 1:
 		_anim_player.play("jump")
+		$Footsteps.stop()
 	elif abs(velocity.x) > 1 or abs(velocity.z) > 1:
 		_anim_player.play("running")
 		if not $Footsteps.playing:
 			$Footsteps.play()
 	else:
-		_anim_player.play("Idle")
+		_anim_player.play("idle")
 		$Footsteps.stop()
 
 

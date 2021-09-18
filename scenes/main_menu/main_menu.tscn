@@ -85,12 +85,12 @@ size_flags_vertical = 3
 custom_colors/default_color = Color( 0.980392, 0.380392, 0.286275, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Credits
-Art - [url=https://twitter.com/ryanimateon]Ryanimateon[/url]
+Art - [url=https://twitter.com/ryanimateon]Ryanimateon[/url] and s.lynch1607
 Sound - Prod Marrow
 Programming - Exuin
 [url=https://godotengine.org/license]Made with Godot 3.3.3[/url][/center]"
 text = "Credits
-Art - Ryanimateon
+Art - Ryanimateon and s.lynch1607
 Sound - Prod Marrow
 Programming - Exuin
 Made with Godot 3.3.3"
