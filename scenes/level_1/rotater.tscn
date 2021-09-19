@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/level_1/rotater.gd" type="Script" id=1]
 
@@ -8,6 +8,9 @@ extents = Vector3( 11, 1, 11 )
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 20, 2, 20 )
 
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.654902, 0.760784, 0.498039, 1 )
+
 [node name="Rotater" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -16,7 +19,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
@@ -26,4 +29,4 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )

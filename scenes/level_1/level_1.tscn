@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/cube/cube.tscn" type="PackedScene" id=2]
@@ -37,20 +37,23 @@ top_radius = 4.0
 bottom_radius = 4.0
 height = 14.0
 
-[sub_resource type="SphereShape" id=9]
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.0980392, 0.352941, 0.321569, 1 )
+
+[sub_resource type="SphereShape" id=10]
 radius = 10.0
 
-[sub_resource type="SphereMesh" id=10]
+[sub_resource type="SphereMesh" id=11]
 radius = 10.0
 height = 10.0
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=12]
 albedo_texture = ExtResource( 8 )
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=13]
 extents = Vector3( 1000, 1, 1000 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=14]
 size = 36
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -260,7 +263,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
 
 [node name="Cylinder2" type="StaticBody" parent="Ground"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 194.305, 29.5252, -204.45 )
@@ -275,7 +278,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
 
 [node name="Cylinder3" type="StaticBody" parent="Ground"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 183.871, 34.6606, -189.583 )
@@ -290,7 +293,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
 
 [node name="Cylinder4" type="StaticBody" parent="Ground"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 173.749, 38.3375, -173.262 )
@@ -305,7 +308,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
 
 [node name="Cylinder5" type="StaticBody" parent="Ground"]
 transform = Transform( -3.17323e-08, -0.725951, -0.687747, 1, -4.37114e-08, 0, -3.00624e-08, -0.687747, 0.725951, 53.3071, 48.7135, -26.7649 )
@@ -320,7 +323,7 @@ shape = SubResource( 7 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground/Cylinder5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.697034, -0.357718, -0.621435, 0.673747, 0.0301651, 0.738346, -0.245374, -0.933342, 0.262038, 0, 37.5953, 0 )
@@ -350,12 +353,12 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Goal"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03416, 0, 4.7147 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Goal"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 11 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
 
 [node name="Bottom" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
@@ -363,7 +366,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Bottom"]
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -386,7 +389,7 @@ margin_left = -68.5
 margin_top = -21.5
 margin_right = 68.5
 margin_bottom = 21.5
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "You win!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -402,7 +405,7 @@ __meta__ = {
 [node name="CubesLabel" type="Label" parent="UI/TopLeft"]
 margin_right = 237.0
 margin_bottom = 43.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Cubes: 0"
 __meta__ = {
@@ -413,7 +416,7 @@ __meta__ = {
 margin_top = 47.0
 margin_right = 237.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "Time: 00:00:00"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
